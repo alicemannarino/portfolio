@@ -23,6 +23,29 @@ a{color:#F2EBDD}a:hover{color:#FFFFFF}
 @keyframes car{0%,42%{transform:translateX(0)}50%,92%{transform:translateX(-50%)}100%{transform:translateX(0)}}
 @keyframes d1{0%,42%,100%{background:#3897F0}50%,92%{background:#C7C7C7}}
 @keyframes d2{0%,42%,100%{background:#C7C7C7}50%,92%{background:#3897F0}}
+@keyframes filmroll{to{background-position:0 72px}}
+@keyframes filmrollm{to{background-position:0 40px}}
+@keyframes write{from{clip-path:inset(-30% 100% -30% -5%)}to{clip-path:inset(-30% -5% -30% -5%)}}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes filmfloat{0%,100%{transform:rotate(-1.5deg) translateY(0)}50%{transform:rotate(-.6deg) translateY(-8px)}}
+@keyframes develop{from{filter:brightness(.15) sepia(.8) blur(3px) contrast(.8)}60%{filter:brightness(.8) sepia(.4) blur(.5px)}to{filter:none}}
+@keyframes bobc{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes swing{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(2deg)}}
+@keyframes wiggle{0%,86%,100%{transform:rotate(0)}90%{transform:rotate(2deg)}94%{transform:rotate(-2deg)}}
+@keyframes liin{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+.holes-v{animation:filmroll 3.5s linear infinite}
+.write{animation:write 1.8s .7s cubic-bezier(.6,.1,.3,1) both}
+.trail{animation:wipe .55s linear both}
+.filmfloat{animation:filmfloat 7s ease-in-out 1.5s infinite}
+.develop{animation:develop 3.5s ease-out .3s both}
+.m-pair{animation:bobc 6s ease-in-out infinite}
+.swing{animation:swing 3.2s ease-in-out infinite;transform-origin:22px 50%}
+.wiggle{animation:wiggle 5s ease-in-out infinite}
+.peek:hover{transform:translateY(-34px) rotate(0deg)!important}
+.p-label{transition:transform .3s}
+.p-label:hover{transform:rotate(2deg) scale(1.04)!important}
+a.vlink{transition:letter-spacing .25s}
+a.vlink:hover{letter-spacing:.16em}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes draw{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
 @keyframes rec{0%,100%{opacity:1}50%{opacity:.2}}
@@ -67,11 +90,13 @@ a{color:#F2EBDD}a:hover{color:#FFFFFF}
 .rise{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
 .peekin{animation:peek linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
 .thread{animation:draw linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+#skills li{animation:liin linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+.develop{animation:develop linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
 .printin{animation:print linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
 }
 @media (max-width: 720px){
 .film{padding:10px 22px!important}
-.holes-v{width:12px!important;background:repeating-linear-gradient(180deg,transparent 0 10px,#E6E0D4 10px 26px,transparent 26px 40px)!important}
+.holes-v{width:12px!important;background:repeating-linear-gradient(180deg,transparent 0 10px,#E6E0D4 10px 26px,transparent 26px 40px)!important;animation-name:filmrollm}
 .hl{left:5px!important}.hr{right:5px!important}
 .frame{padding:30px 16px!important;margin-bottom:12px!important;font-size:14px;line-height:1.6}
 .m-h1{font-size:30px!important}
@@ -103,7 +128,7 @@ header nav a{padding:6px 6px!important}
 #contatti h2{font-size:24px!important;padding:10px 30px 12px!important}
 }
 @media (prefers-reduced-motion: reduce){
-.in,.sway,.bob,.star,.reel,.recdot,.reveal,.rise,.peekin,.thread,.printin,.carousel,.dot1,.dot2{animation:none!important;opacity:1!important}
+.in,.sway,.bob,.star,.reel,.recdot,.reveal,.rise,.peekin,.thread,.printin,.carousel,.dot1,.dot2,.holes-v,.write,.trail,.filmfloat,.develop,.m-pair,.swing,.wiggle,#skills li{animation:none!important;opacity:1!important}
 }
 </style>
 </head>
@@ -132,15 +157,15 @@ header nav a{padding:6px 6px!important}
 
 <section id="intro" class="frame papertile" style="background-color: #F2EBDD; color: #2A1A1A; display: flex; flex-direction: column; align-items: center; gap: 30px">
 <div class="in d1" style="width: 100%; max-width: 920px">
-<div style="position: relative; width: 100%; aspect-ratio: 3200 / 952; transform: rotate(-1.5deg); filter: drop-shadow(0 16px 22px rgba(0,0,0,.35))">
-<img src="trailt1.png" alt="" style="position: absolute; left: 0.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
-<img src="trailt2.png" alt="" style="position: absolute; left: 25.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
-<img src="trailt3.png" alt="" style="position: absolute; left: 50.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
-<img src="trailt4.png" alt="" style="position: absolute; left: 75.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
+<div class="filmfloat" style="position: relative; width: 100%; aspect-ratio: 3200 / 952; transform: rotate(-1.5deg); filter: drop-shadow(0 16px 22px rgba(0,0,0,.35))">
+<img class="trail" src="trailt1.png" alt="" style="position: absolute; left: 0.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block; animation-delay: 0.90s">
+<img class="trail" src="trailt2.png" alt="" style="position: absolute; left: 25.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block; animation-delay: 1.45s">
+<img class="trail" src="trailt3.png" alt="" style="position: absolute; left: 50.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block; animation-delay: 2.00s">
+<img class="trail" src="trailt4.png" alt="" style="position: absolute; left: 75.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block; animation-delay: 2.55s">
 <img src="film_red.png" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
 </div>
 </div>
-<div class="in d2"><h1 class="m-h1" style="margin: 0; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 62px; line-height: 1.9; color: #7A1420; text-align: center; transform: rotate(-3deg)">alice mannarino</h1></div>
+<div class="in d2"><h1 class="m-h1 write" style="margin: 0; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 62px; line-height: 1.9; color: #7A1420; text-align: center; transform: rotate(-3deg)">alice mannarino</h1></div>
 <div class="in d3" style="display: flex; align-items: center; gap: 14px; font-size: 15px; text-align: center">
 <span>social media manager &amp; content creator · milan</span>
 </div>
@@ -150,7 +175,7 @@ header nav a{padding:6px 6px!important}
 <div style="flex: 1 1 320px; display: flex; justify-content: center; position: relative; min-height: 400px; align-items: center">
 <div class="reveal" style="--r: -5deg; position: relative; width: 280px; height: 343px; z-index: 2">
 <div class="tape" style="top: -14px; left: 50%; margin-left: -55px; transform: rotate(4deg)"></div>
-<img src="me_polaroid2.jpg" alt="Portrait of Alice Mannarino" style="position: absolute; left: 6.5%; top: 6.1%; width: 86.7%; height: 72.2%; object-fit: cover; display: block">
+<img class="develop" src="me_polaroid2.jpg" alt="Portrait of Alice Mannarino" style="position: absolute; left: 6.5%; top: 6.1%; width: 86.7%; height: 72.2%; object-fit: cover; display: block">
 <div class="p-polaroid shadow" style="position: absolute; inset: 0"></div>
 <p style="position: absolute; left: 0; right: 0; top: 284px; margin: 0; font-family: 'Beth Ellen', cursive; font-size: 13px; color: #2B3FA0; text-align: center; transform: rotate(-2deg); line-height: 1.9">milan, 2026</p>
 </div>
@@ -160,7 +185,7 @@ header nav a{padding:6px 6px!important}
 <p class="rise" style="margin: 0">Social media manager and content creator from Milan, with a degree in Communication from IULM and a master's in Publishing and Music Production on the way. A background in classical studies, a sketchbook always nearby, free time spent crocheting and hunting for treasures in thrift shops.</p>
 <p class="rise" style="margin: 0">That handmade mindset is what goes into every post: content made with care, built around the people who will see it, not just the algorithm.</p>
 <div class="rise" style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center; padding-top: 6px">
-<div class="tag" style="position: relative; display: inline-block; margin-left: 24px; transform: rotate(-4deg); filter: drop-shadow(0 8px 10px rgba(0,0,0,.35))">
+<div class="swing" style="position: relative; display: inline-block; margin-left: 24px; transform: rotate(-4deg); filter: drop-shadow(0 8px 10px rgba(0,0,0,.35))">
 <svg aria-hidden="true" width="110" height="100" viewBox="0 0 110 100" style="position: absolute; left: -70px; top: -40px; overflow: visible"><path d="M92 67 C78 34, 44 8, 18 22" fill="none" stroke="#B9AC90" stroke-width="2.4" stroke-linecap="round"/></svg>
 <a class="papertile" href="Alice_Mannarino_CV.pdf" target="_blank" rel="noopener" download="Alice_Mannarino_CV.pdf" style="position: relative; display: inline-block; padding: 16px 30px 16px 50px; background-color: #EADFC6; color: #7A1420; text-decoration: none; font-weight: 700; clip-path: polygon(24px 0, 100% 0, 100% 100%, 24px 100%, 0 50%)">download my cv</a>
 <span aria-hidden="true" style="position: absolute; left: 16px; top: 50%; margin-top: -6px; width: 12px; height: 12px; border-radius: 50%; background: #7A1420; box-shadow: inset 0 1px 2px rgba(0,0,0,.5), 0 0 0 3px #D9CBAE"></span>
@@ -246,9 +271,10 @@ header nav a{padding:6px 6px!important}
 <div style="display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; justify-content: space-between">
 <div style="flex: 1 1 280px; max-width: 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
 <h2 class="rise m-h2" style="margin: 0; text-align: left; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 36px; line-height: 1.9">thestylepusher</h2>
+<svg aria-hidden="true" width="190" height="16" viewBox="0 0 190 16" style="display: block; margin-top: -16px; overflow: visible"><path class="thread" d="M2 10 C 40 2, 80 14, 120 7 S 170 4, 188 9" fill="none" stroke="#F2EBDD" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
 <p style="margin: 28px 0 0; font-size: 13px; letter-spacing: .12em; opacity: .85">01 · FASHION &amp; LIFESTYLE · @THESTYLEPUSHER</p>
 <p style="margin: 0"><strong>What I did:</strong> format ideas, editing and copy.</p>
-<a href="https://www.instagram.com/thestylepusher/" target="_blank" rel="noopener" style="align-self: flex-start; padding: 8px 0; color: #F2EBDD; font-size: 14px; letter-spacing: .08em">view on instagram</a>
+<a class="vlink" href="https://www.instagram.com/thestylepusher/" target="_blank" rel="noopener" style="align-self: flex-start; padding: 8px 0; color: #F2EBDD; font-size: 14px; letter-spacing: .08em">view on instagram</a>
 </div>
 <div class="m-pair" style="flex: 0 0 auto; display: flex; gap: 26px; align-items: flex-start; margin-inline: auto">
 <div class="reveal" style="--r: -3deg; flex: 0 0 auto; width: 200px; height: 400px; border: 9px solid #111; border-radius: 30px; background: #111; color: #F2EBDD; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; font-size: 13px; overflow: hidden; box-shadow: 0 20px 36px rgba(0,0,0,.5); box-sizing: border-box"><video src="tsp_reel.mp4" poster="tsp_poster.jpg" autoplay="" muted="" loop="" playsinline="" aria-label="Reel for The Style Pusher" style="width: 100%; height: 100%; object-fit: cover; display: block"></video></div>
@@ -261,9 +287,10 @@ header nav a{padding:6px 6px!important}
 <div style="display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; justify-content: space-between">
 <div style="flex: 1 1 280px; max-width: 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
 <h2 class="rise m-h2" style="margin: 0; text-align: left; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 36px; line-height: 1.9">waveforms studio</h2>
+<svg aria-hidden="true" width="190" height="16" viewBox="0 0 190 16" style="display: block; margin-top: -16px; overflow: visible"><path class="thread" d="M2 10 C 40 2, 80 14, 120 7 S 170 4, 188 9" fill="none" stroke="#F2EBDD" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
 <p style="margin: 28px 0 0; font-size: 13px; letter-spacing: .12em; opacity: .85">02 · MUSIC · @WAVEFORMS_STUDIO</p>
 <p style="margin: 0"><strong>What I did:</strong> ideas, shooting, editing and copy.</p>
-<a href="https://www.instagram.com/waveforms_studio/" target="_blank" rel="noopener" style="align-self: flex-start; padding: 8px 0; color: #F2EBDD; font-size: 14px; letter-spacing: .08em">view on instagram</a>
+<a class="vlink" href="https://www.instagram.com/waveforms_studio/" target="_blank" rel="noopener" style="align-self: flex-start; padding: 8px 0; color: #F2EBDD; font-size: 14px; letter-spacing: .08em">view on instagram</a>
 </div>
 <div class="m-pair" style="flex: 0 0 auto; display: flex; gap: 26px; align-items: flex-start; margin-inline: auto">
 <div class="reveal" style="--r: -3deg; flex: 0 0 auto; width: 200px; height: 400px; border: 9px solid #111; border-radius: 30px; background: #000; overflow: hidden; box-shadow: 0 20px 36px rgba(0,0,0,.5); box-sizing: border-box"><video src="wf_reel1.mp4" poster="wf_poster1.jpg" autoplay="" muted="" loop="" playsinline="" aria-label="Reel for Waveforms Studio" style="width: 100%; height: 100%; object-fit: cover; background: #000; display: block"></video></div>
@@ -274,6 +301,7 @@ header nav a{padding:6px 6px!important}
 
 <article class="frame scan" style="background-color: #7A1420; display: flex; flex-direction: column; gap: 32px">
 <h2 class="rise m-h2" style="margin: 0; text-align: left; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 36px; line-height: 1.9">corte dei pavoni</h2>
+<svg aria-hidden="true" width="190" height="16" viewBox="0 0 190 16" style="display: block; margin-top: -16px; overflow: visible"><path class="thread" d="M2 10 C 40 2, 80 14, 120 7 S 170 4, 188 9" fill="none" stroke="#F2EBDD" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
 <div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
 <div class="reveal" style="--r: -1.5deg; flex: 1 1 480px; max-width: 600px; position: relative">
 <div style="background: #EDE7DA; border-radius: 12px 12px 6px 6px; box-shadow: 0 22px 40px rgba(0,0,0,.5); overflow: hidden">
@@ -284,7 +312,7 @@ header nav a{padding:6px 6px!important}
 <div style="flex: 999 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
 <p style="margin: 0; font-size: 13px; letter-spacing: .12em; opacity: .85">03 · WEBSITE · HOSPITALITY</p>
 <p style="margin: 0">Website for a B&amp;B with apartments and an event space: design, content and a direct booking system, built from scratch with the help of AI.</p>
-<a href="https://www.cortedeipavoni.it/" target="_blank" rel="noopener" style="align-self: flex-start; padding: 8px 0; color: #F2EBDD; font-size: 14px; letter-spacing: .08em">visit the website</a>
+<a class="vlink" href="https://www.cortedeipavoni.it/" target="_blank" rel="noopener" style="align-self: flex-start; padding: 8px 0; color: #F2EBDD; font-size: 14px; letter-spacing: .08em">visit the website</a>
 </div>
 </div>
 </article>
@@ -292,9 +320,10 @@ header nav a{padding:6px 6px!important}
 <div style="display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; justify-content: space-between">
 <div style="flex: 1 1 280px; max-width: 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
 <h2 class="rise m-h2" style="margin: 0; text-align: left; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 36px; line-height: 1.9">forno di barona</h2>
+<svg aria-hidden="true" width="190" height="16" viewBox="0 0 190 16" style="display: block; margin-top: -16px; overflow: visible"><path class="thread" d="M2 10 C 40 2, 80 14, 120 7 S 170 4, 188 9" fill="none" stroke="#F2EBDD" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
 <p style="margin: 28px 0 0; font-size: 13px; letter-spacing: .12em; opacity: .85">04 · FOOD &amp; BAKERY · @FORNODIBARONA</p>
 <p style="margin: 0"><strong>What I did:</strong> content ideas, editing, content scheduling and copy.</p>
-<a href="https://www.instagram.com/fornodibarona/" target="_blank" rel="noopener" style="align-self: flex-start; padding: 8px 0; color: #F2EBDD; font-size: 14px; letter-spacing: .08em">view on instagram</a>
+<a class="vlink" href="https://www.instagram.com/fornodibarona/" target="_blank" rel="noopener" style="align-self: flex-start; padding: 8px 0; color: #F2EBDD; font-size: 14px; letter-spacing: .08em">view on instagram</a>
 </div>
 <div class="m-pair" style="flex: 0 0 auto; display: flex; gap: 26px; align-items: flex-start; margin-inline: auto">
 <div class="reveal" style="--r: -3deg; flex: 0 0 auto; width: 200px; height: 400px; border: 9px solid #111; border-radius: 30px; background: #000; overflow: hidden; box-shadow: 0 20px 36px rgba(0,0,0,.5); box-sizing: border-box"><video src="fdb_reel.mp4" poster="fdb_poster.jpg" autoplay="" muted="" loop="" playsinline="" aria-label="Reel for Forno di Barona" style="width: 100%; height: 100%; object-fit: cover; display: block"></video></div>
@@ -315,7 +344,7 @@ header nav a{padding:6px 6px!important}
 <img src="film_red.png" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
 </div>
 </div>
-<h2 class="reveal ribbon scan" style="--r: -2deg; margin: 0; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 26px; line-height: 1.9; background-color: #7A1420; color: #F2EBDD; padding: 12px 56px 16px; text-align: center">let's work together</h2>
+<div class="wiggle"><h2 class="reveal ribbon scan" style="--r: -2deg; margin: 0; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 26px; line-height: 1.9; background-color: #7A1420; color: #F2EBDD; padding: 12px 56px 16px; text-align: center">let's work together</h2></div>
 <div style="display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: center; font-size: 14px">
 <a href="mailto:alicemannarino02@gmail.com" style="padding: 8px 4px; color: #2A1A1A; font-size: 16px">alicemannarino02@gmail.com</a>
 </div>
