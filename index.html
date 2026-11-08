@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<title>Alice Mannarino – Portfolio</title>
+<meta name="description" content="Alice Mannarino – social media manager &amp; content creator, Milan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&amp;family=Beth+Ellen&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html{scroll-behavior:smooth}
+a{color:#F2EBDD}a:hover{color:#FFFFFF}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes sway{0%,100%{transform:rotate(var(--r,0deg))}50%{transform:rotate(calc(var(--r,0deg) + 2.5deg))}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(var(--r,0deg))}}
+@keyframes twinkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.3) rotate(25deg)}}
+@keyframes drop{from{opacity:0;transform:translateY(-50px) rotate(calc(var(--r,0deg) - 12deg))}to{opacity:1;transform:rotate(var(--r,0deg))}}
+@keyframes rise{from{opacity:0;transform:translateY(70px)}to{opacity:1;transform:none}}
+@keyframes peek{from{transform:translateY(160px) rotate(0)}to{transform:rotate(var(--r,0deg))}}
+@keyframes print{from{clip-path:inset(-40px -40px 100% -40px);transform:translateY(-30px) rotate(1.5deg)}to{clip-path:inset(-40px -40px -60px -40px);transform:rotate(1.5deg)}}
+@keyframes car{0%,42%{transform:translateX(0)}50%,92%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+@keyframes d1{0%,42%,100%{background:#3897F0}50%,92%{background:#C7C7C7}}
+@keyframes d2{0%,42%,100%{background:#C7C7C7}50%,92%{background:#3897F0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes draw{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
+@keyframes rec{0%,100%{opacity:1}50%{opacity:.2}}
+.in{opacity:0;animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.d1{animation-delay:.15s}.d2{animation-delay:.4s}.d3{animation-delay:.65s}
+.sway{animation:sway 5s ease-in-out infinite;transform-origin:50% 0}
+.bob{animation:bob 5s ease-in-out infinite}
+.star{animation:twinkle 3s ease-in-out infinite}
+.reel{animation:spin 4s linear infinite}
+.carousel{animation:car 7s cubic-bezier(.6,0,.2,1) infinite}
+.dot1{animation:d1 7s steps(1) infinite}
+.dot2{animation:d2 7s steps(1) infinite}
+.recdot{animation:rec 1.4s ease-in-out infinite}
+.thread{stroke-dasharray:900;animation:draw 2.4s ease-out both}
+.scan{background-image:url(assets/grain.png);background-size:256px 256px}
+.papertile{background-image:url(assets/paper_tile.jpg);background-size:512px 512px}
+.p-polaroid{background:url(assets/polaroid.png) center/100% 100% no-repeat}
+.p-label{background:url(assets/label.png) center/100% 100% no-repeat}
+.p-fback{background:url(assets/folder_back.png) center/100% 100% no-repeat}
+.p-ffront{background:url(assets/folder_front.png) center/100% 100% no-repeat}
+.p-notebook{background:url(assets/notebook.png) center/100% 100% no-repeat}
+.tape{position:absolute;width:110px;height:32px;background:url(assets/tape.png) center/100% 100% no-repeat;z-index:3;pointer-events:none}
+.shadow{filter:drop-shadow(0 12px 14px rgba(0,0,0,.38)) drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+.rough{filter:url(#rough) drop-shadow(0 8px 10px rgba(0,0,0,.3))}
+.ink{filter:url(#ink);opacity:.9}
+.ribbon{clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%)}
+.holes-v{position:absolute;top:0;bottom:0;width:26px;background:repeating-linear-gradient(180deg,transparent 0 18px,#E6E0D4 18px 50px,transparent 50px 72px)}
+.holes{height:12px;background:repeating-linear-gradient(90deg,#F2EBDD 0 14px,transparent 14px 30px)}
+.frame{position:relative;margin-bottom:26px;padding:64px 56px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.peek{transition:transform .5s cubic-bezier(.2,.8,.2,1);transform:rotate(var(--r,0deg))}
+.folder:hover .peek{transform:translateY(-70px) rotate(calc(var(--r,0deg) * 1.6))}
+.tag{transition:transform .25s}
+.tag:hover{transform:rotate(-3deg) translateY(-3px)}
+.cam{transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.cam:hover{transform:rotate(-2deg) scale(1.03)}
+.dymo{transition:translate .25s}
+.dymo:hover{translate:0 -4px}
+.cover{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.cover:hover{transform:translateY(-16px) rotate(0deg)!important}
+@supports (animation-timeline: view()){
+.reveal{animation:drop linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+.rise{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+.peekin{animation:peek linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+.thread{animation:draw linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+.printin{animation:print linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+}
+@media (max-width: 720px){
+.film{padding:10px 22px!important}
+.holes-v{width:12px!important;background:repeating-linear-gradient(180deg,transparent 0 10px,#E6E0D4 10px 26px,transparent 26px 40px)!important}
+.hl{left:5px!important}.hr{right:5px!important}
+.frame{padding:30px 16px!important;margin-bottom:12px!important;font-size:14px;line-height:1.6}
+.m-h1{font-size:30px!important}
+.m-h2{font-size:26px!important}
+header a[href="#intro"]{font-size:20px!important}
+header nav{font-size:12px!important}
+header nav a{padding:6px 6px!important}
+#su-di-me{gap:24px!important}
+#su-di-me > div:first-child{min-height:0!important;flex-basis:100%!important}
+#su-di-me > div:first-child > div{zoom:.72}
+#skills > div{display:grid!important;grid-template-columns:1fr 1fr;gap:24px 18px!important}
+#skills li{padding:6px 0!important;font-size:13px}
+#skills h3{font-size:17px!important}
+.m-folder{padding-top:110px!important}
+.m-fback{top:58px!important}
+.m-tab{font-size:8px!important;letter-spacing:.06em!important;top:3px!important}
+.m-pk1{width:25%!important;left:2%!important;top:16px!important}
+.m-pk2{width:25%!important;left:26%!important;top:0!important}
+.m-pk3{width:25%!important;left:50%!important;top:20px!important}
+.m-pk4{width:25%!important;left:73%!important;top:6px!important}
+.m-label{padding:10px 16px!important}
+.m-sub{display:none}
+.m-pair{gap:12px!important}
+.m-pair > div{width:120px!important;height:240px!important;border-width:6px!important;border-radius:20px!important}
+.m-pair > div + div{margin-top:30px!important}
+.m-strip > div:nth-child(2) > div{width:56px!important;height:68px!important}
+.m-strip > div:nth-child(2){gap:6px!important}
+#contatti{gap:20px!important}
+#contatti h2{font-size:24px!important;padding:10px 30px 12px!important}
+}
+@media (prefers-reduced-motion: reduce){
+.in,.sway,.bob,.star,.reel,.recdot,.reveal,.rise,.peekin,.thread,.printin,.carousel,.dot1,.dot2{animation:none!important;opacity:1!important}
+}
+</style>
+</head>
+<body>
+<div class="scan" style="background-color: #121010; color: #F2EBDD; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; padding: 0 0 40px">
+<svg width="0" height="0" aria-hidden="true" style="position: absolute">
+<defs>
+<filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="4" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
+<filter id="ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.6 1.25" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in" result="c"/><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="9" result="w"/><feDisplacementMap in="c" in2="w" scale="3"/></filter>
+</defs>
+</svg>
+
+<div class="film scan" style="position: relative; max-width: 1180px; margin: 0 auto; background-color: #4A0B13; padding: 26px 76px">
+<div class="holes-v hl" aria-hidden="true" style="left: 24px"></div>
+<div class="holes-v hr" aria-hidden="true" style="right: 24px"></div>
+
+<header style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; padding: 6px 0 22px">
+<a href="#intro" style="font-family: 'Beth Ellen', cursive; font-size: 20px; line-height: 2.2; color: #F2EBDD; text-decoration: none">alice m.</a>
+<nav aria-label="Menu" style="display: flex; flex-wrap: wrap; gap: 4px; font-size: 15px">
+<a href="#su-di-me" style="padding: 10px 12px; color: #F2EBDD; text-decoration: none">/ about me</a>
+<a href="#skills" style="padding: 10px 12px; color: #F2EBDD; text-decoration: none">/ skills</a>
+<a href="#lavori" style="padding: 10px 12px; color: #F2EBDD; text-decoration: none">/ work</a>
+<a href="#contatti" style="padding: 10px 12px; color: #F2EBDD; text-decoration: none">/ contact</a>
+</nav>
+</header>
+
+<section id="intro" class="frame papertile" style="background-color: #F2EBDD; color: #2A1A1A; display: flex; flex-direction: column; align-items: center; gap: 30px">
+<div class="in d1" style="width: 100%; max-width: 920px">
+<div style="position: relative; width: 100%; aspect-ratio: 3200 / 952; transform: rotate(-1.5deg); filter: drop-shadow(0 16px 22px rgba(0,0,0,.35))">
+<img src="assets/trailt1.png" alt="" style="position: absolute; left: 0.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
+<img src="assets/trailt2.png" alt="" style="position: absolute; left: 25.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
+<img src="assets/trailt3.png" alt="" style="position: absolute; left: 50.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
+<img src="assets/trailt4.png" alt="" style="position: absolute; left: 75.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
+<img src="assets/film_red.png" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+</div>
+</div>
+<div class="in d2"><h1 class="m-h1" style="margin: 0; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 62px; line-height: 1.9; color: #7A1420; text-align: center; transform: rotate(-3deg)">alice mannarino</h1></div>
+<div class="in d3" style="display: flex; align-items: center; gap: 14px; font-size: 15px; text-align: center">
+<span>social media manager &amp; content creator · milan</span>
+</div>
+</section>
+
+<section id="su-di-me" class="frame scan" style="background-color: #7A1420; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 320px; display: flex; justify-content: center; position: relative; min-height: 400px; align-items: center">
+<div class="reveal" style="--r: -5deg; position: relative; width: 280px; height: 343px; z-index: 2">
+<div class="tape" style="top: -14px; left: 50%; margin-left: -55px; transform: rotate(4deg)"></div>
+<div style="position: absolute; left: 6.5%; top: 6.1%; width: 86.7%; height: 72.2%; background: #2B2626; color: #E6E0D4; display: flex; align-items: center; justify-content: center; font-weight: 700">[YOUR PHOTO]</div>
+<div class="p-polaroid shadow" style="position: absolute; inset: 0"></div>
+<p style="position: absolute; left: 0; right: 0; top: 284px; margin: 0; font-family: 'Beth Ellen', cursive; font-size: 13px; color: #2B3FA0; text-align: center; transform: rotate(-2deg); line-height: 1.9">milan, 2026</p>
+</div>
+</div>
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h2 class="rise m-h2" style="margin: 0; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 41px; line-height: 1.9">about me</h2>
+<p class="rise" style="margin: 0">Social media manager and content creator from Milan, with a degree in Communication from IULM and a master's in Publishing and Music Production on the way. A background in classical studies, a sketchbook always nearby, free time spent crocheting and hunting for treasures in thrift shops.</p>
+<p class="rise" style="margin: 0">That handmade mindset is what goes into every post: content made with care, built around the people who will see it, not just the algorithm.</p>
+<div class="rise" style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center; padding-top: 6px">
+<div class="tag" style="position: relative; display: inline-block; margin-left: 24px; transform: rotate(-4deg); filter: drop-shadow(0 8px 10px rgba(0,0,0,.35))">
+<svg aria-hidden="true" width="110" height="100" viewBox="0 0 110 100" style="position: absolute; left: -70px; top: -40px; overflow: visible"><path d="M92 67 C78 34, 44 8, 18 22" fill="none" stroke="#B9AC90" stroke-width="2.4" stroke-linecap="round"/></svg>
+<a class="papertile" href="[LINK TO YOUR CV]" style="position: relative; display: inline-block; padding: 16px 30px 16px 50px; background-color: #EADFC6; color: #7A1420; text-decoration: none; font-weight: 700; clip-path: polygon(24px 0, 100% 0, 100% 100%, 24px 100%, 0 50%)">download my cv</a>
+<span aria-hidden="true" style="position: absolute; left: 16px; top: 50%; margin-top: -6px; width: 12px; height: 12px; border-radius: 50%; background: #7A1420; box-shadow: inset 0 1px 2px rgba(0,0,0,.5), 0 0 0 3px #D9CBAE"></span>
+<svg aria-hidden="true" width="110" height="100" viewBox="0 0 110 100" style="position: absolute; left: -70px; top: -40px; overflow: visible; pointer-events: none"><path d="M18 22 C2 30, 4 62, 30 74 S 78 80, 92 67" fill="none" stroke="#EDE4CF" stroke-width="2.4" stroke-linecap="round"/><circle cx="18" cy="22" r="3" fill="#EDE4CF"/></svg>
+</div>
+<span style="font-size: 14px; opacity: .85">open to new opportunities</span>
+</div>
+</div>
+</section>
+
+<section id="skills" class="frame scan" style="background-color: #7A1420; display: flex; flex-direction: column; gap: 40px">
+<h2 class="rise m-h2" style="margin: 0; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 41px; line-height: 1.9">skills</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 40px 48px">
+<div class="rise" style="flex: 1 1 200px; min-width: 0">
+<h3 style="margin: 0 0 10px; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 22px; line-height: 1.9">soft skills</h3>
+<ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(242,235,221,.25)">
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Creativity</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Trend awareness</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Time management</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Storytelling</li>
+</ul>
+</div>
+<div class="rise" style="flex: 1 1 200px; min-width: 0">
+<h3 style="margin: 0 0 10px; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 22px; line-height: 1.9">hard skills</h3>
+<ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(242,235,221,.25)">
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Content creation &amp; reels</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Editorial planning</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Copywriting</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">AI prompts</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Websites with AI</li>
+</ul>
+</div>
+<div class="rise" style="flex: 1 1 200px; min-width: 0">
+<h3 style="margin: 0 0 10px; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 22px; line-height: 1.9">tools</h3>
+<ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(242,235,221,.25)">
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Canva</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">CapCut</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Lightroom</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Meta Business Suite</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">WordPress</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Claude</li>
+</ul>
+</div>
+<div class="rise" style="flex: 1 1 200px; min-width: 0">
+<h3 style="margin: 0 0 10px; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 22px; line-height: 1.9">languages</h3>
+<ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(242,235,221,.25)">
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Italian · native</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">English · fluent</li>
+<li style="padding: 10px 0; border-bottom: 1px solid rgba(242,235,221,.25)">Spanish · B1</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="lavori" class="frame scan" style="background-color: #7A1420; display: flex; flex-direction: column; align-items: center; gap: 40px">
+<div class="folder m-folder" style="position: relative; padding-top: 190px; max-width: 760px; width: 100%; margin: 0 auto">
+<div class="p-fback m-fback" aria-hidden="true" style="position: absolute; top: 110px; left: 0; right: 0; bottom: 0; z-index: 0; filter: drop-shadow(0 20px 26px rgba(0,0,0,.45))">
+<span class="m-tab" style="position: absolute; left: 4.6%; width: 30.9%; top: 8px; text-align: center; color: #3D2B1F; letter-spacing: .2em; font-size: 15px">/ ARCHIVE 01</span>
+</div>
+<div class="peekin m-pk1" aria-hidden="true" style="position: absolute; top: 30px; left: 3%; width: 24%; z-index: 1">
+<div class="peek" style="--r: -7deg; filter: drop-shadow(0 10px 12px rgba(0,0,0,.35))"><div class="papertile" style="aspect-ratio: 3 / 5; background-color: #FBF8F1; color: #1E1A18; font-family: 'Courier Prime', 'Courier New', monospace; font-size: clamp(7px, 1.25vw, 12px); line-height: 1.5; padding: 9% 9% 0; box-sizing: border-box; clip-path: polygon(0 6px, 0.00% 6px, 6.25% 0, 12.50% 6px, 18.75% 0, 25.00% 6px, 31.25% 0, 37.50% 6px, 43.75% 0, 50.00% 6px, 56.25% 0, 62.50% 6px, 68.75% 0, 75.00% 6px, 81.25% 0, 87.50% 6px, 93.75% 0, 100.00% 6px, 100.00% calc(100% - 6px), 93.75% 100%, 87.50% calc(100% - 6px), 81.25% 100%, 75.00% calc(100% - 6px), 68.75% 100%, 62.50% calc(100% - 6px), 56.25% 100%, 50.00% calc(100% - 6px), 43.75% 100%, 37.50% calc(100% - 6px), 31.25% 100%, 25.00% calc(100% - 6px), 18.75% 100%, 12.50% calc(100% - 6px), 6.25% 100%, 0.00% calc(100% - 6px))"><p style="margin: 0; text-align: center; font-weight: 700; letter-spacing: .12em">THESTYLEPUSHER</p><p style="margin: 0 0 6%; text-align: center">fashion &amp; lifestyle</p><div style="border-top: 1px dashed #6B6460; margin-bottom: 5%"></div><div style="display: flex; gap: 4px"><span>format ideas</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>editing</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>copy</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="border-top: 1px dashed #6B6460; margin: 6% 0 4%"></div><div style="display: flex; justify-content: space-between; font-weight: 700"><span>TOTAL</span><span>1 project</span></div><div style="height: 12%; margin-top: 8%; background: repeating-linear-gradient(90deg, #1E1A18 0 2px, transparent 2px 4px, #1E1A18 4px 6px, transparent 6px 7px)"></div></div></div>
+</div>
+<div class="peekin m-pk2" aria-hidden="true" style="position: absolute; top: 0; left: 26%; width: 24%; z-index: 2">
+<div class="peek" style="--r: 4deg; filter: drop-shadow(0 10px 12px rgba(0,0,0,.35))"><div class="papertile" style="aspect-ratio: 3 / 5; background-color: #FBF8F1; color: #1E1A18; font-family: 'Courier Prime', 'Courier New', monospace; font-size: clamp(7px, 1.25vw, 12px); line-height: 1.5; padding: 9% 9% 0; box-sizing: border-box; clip-path: polygon(0 6px, 0.00% 6px, 6.25% 0, 12.50% 6px, 18.75% 0, 25.00% 6px, 31.25% 0, 37.50% 6px, 43.75% 0, 50.00% 6px, 56.25% 0, 62.50% 6px, 68.75% 0, 75.00% 6px, 81.25% 0, 87.50% 6px, 93.75% 0, 100.00% 6px, 100.00% calc(100% - 6px), 93.75% 100%, 87.50% calc(100% - 6px), 81.25% 100%, 75.00% calc(100% - 6px), 68.75% 100%, 62.50% calc(100% - 6px), 56.25% 100%, 50.00% calc(100% - 6px), 43.75% 100%, 37.50% calc(100% - 6px), 31.25% 100%, 25.00% calc(100% - 6px), 18.75% 100%, 12.50% calc(100% - 6px), 6.25% 100%, 0.00% calc(100% - 6px))"><p style="margin: 0; text-align: center; font-weight: 700; letter-spacing: .12em">WAVEFORMS</p><p style="margin: 0 0 6%; text-align: center">music studio</p><div style="border-top: 1px dashed #6B6460; margin-bottom: 5%"></div><div style="display: flex; gap: 4px"><span>ideas</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>shooting</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>editing</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>copy</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="border-top: 1px dashed #6B6460; margin: 6% 0 4%"></div><div style="display: flex; justify-content: space-between; font-weight: 700"><span>TOTAL</span><span>1 project</span></div><div style="height: 12%; margin-top: 8%; background: repeating-linear-gradient(90deg, #1E1A18 0 2px, transparent 2px 4px, #1E1A18 4px 6px, transparent 6px 7px)"></div></div></div>
+</div>
+<div class="peekin m-pk3" aria-hidden="true" style="position: absolute; top: 36px; left: 49%; width: 24%; z-index: 3">
+<div class="peek" style="--r: 9deg; filter: drop-shadow(0 10px 12px rgba(0,0,0,.35))"><div class="papertile" style="aspect-ratio: 3 / 5; background-color: #FBF8F1; color: #1E1A18; font-family: 'Courier Prime', 'Courier New', monospace; font-size: clamp(7px, 1.25vw, 12px); line-height: 1.5; padding: 9% 9% 0; box-sizing: border-box; clip-path: polygon(0 6px, 0.00% 6px, 6.25% 0, 12.50% 6px, 18.75% 0, 25.00% 6px, 31.25% 0, 37.50% 6px, 43.75% 0, 50.00% 6px, 56.25% 0, 62.50% 6px, 68.75% 0, 75.00% 6px, 81.25% 0, 87.50% 6px, 93.75% 0, 100.00% 6px, 100.00% calc(100% - 6px), 93.75% 100%, 87.50% calc(100% - 6px), 81.25% 100%, 75.00% calc(100% - 6px), 68.75% 100%, 62.50% calc(100% - 6px), 56.25% 100%, 50.00% calc(100% - 6px), 43.75% 100%, 37.50% calc(100% - 6px), 31.25% 100%, 25.00% calc(100% - 6px), 18.75% 100%, 12.50% calc(100% - 6px), 6.25% 100%, 0.00% calc(100% - 6px))"><p style="margin: 0; text-align: center; font-weight: 700; letter-spacing: .12em">CORTE DEI PAVONI</p><p style="margin: 0 0 6%; text-align: center">website</p><div style="border-top: 1px dashed #6B6460; margin-bottom: 5%"></div><div style="display: flex; gap: 4px"><span>design</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>content</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>booking</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="border-top: 1px dashed #6B6460; margin: 6% 0 4%"></div><div style="display: flex; justify-content: space-between; font-weight: 700"><span>TOTAL</span><span>1 project</span></div><div style="height: 12%; margin-top: 8%; background: repeating-linear-gradient(90deg, #1E1A18 0 2px, transparent 2px 4px, #1E1A18 4px 6px, transparent 6px 7px)"></div></div></div>
+</div>
+<div class="peekin m-pk4" aria-hidden="true" style="position: absolute; top: 10px; left: 72%; width: 24%; z-index: 3">
+<div class="peek" style="--r: -3deg; filter: drop-shadow(0 10px 12px rgba(0,0,0,.35))"><div class="papertile" style="aspect-ratio: 3 / 5; background-color: #FBF8F1; color: #1E1A18; font-family: 'Courier Prime', 'Courier New', monospace; font-size: clamp(7px, 1.25vw, 12px); line-height: 1.5; padding: 9% 9% 0; box-sizing: border-box; clip-path: polygon(0 6px, 0.00% 6px, 6.25% 0, 12.50% 6px, 18.75% 0, 25.00% 6px, 31.25% 0, 37.50% 6px, 43.75% 0, 50.00% 6px, 56.25% 0, 62.50% 6px, 68.75% 0, 75.00% 6px, 81.25% 0, 87.50% 6px, 93.75% 0, 100.00% 6px, 100.00% calc(100% - 6px), 93.75% 100%, 87.50% calc(100% - 6px), 81.25% 100%, 75.00% calc(100% - 6px), 68.75% 100%, 62.50% calc(100% - 6px), 56.25% 100%, 50.00% calc(100% - 6px), 43.75% 100%, 37.50% calc(100% - 6px), 31.25% 100%, 25.00% calc(100% - 6px), 18.75% 100%, 12.50% calc(100% - 6px), 6.25% 100%, 0.00% calc(100% - 6px))"><p style="margin: 0; text-align: center; font-weight: 700; letter-spacing: .12em">FORNO DI BARONA</p><p style="margin: 0 0 6%; text-align: center">food &amp; bakery</p><div style="border-top: 1px dashed #6B6460; margin-bottom: 5%"></div><div style="display: flex; gap: 4px"><span>ideas</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>editing</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>scheduling</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="display: flex; gap: 4px"><span>copy</span><span style="flex: 1; border-bottom: 1px dotted #6B6460; transform: translateY(-3px)"></span><span>✓</span></div><div style="border-top: 1px dashed #6B6460; margin: 6% 0 4%"></div><div style="display: flex; justify-content: space-between; font-weight: 700"><span>TOTAL</span><span>1 project</span></div><div style="height: 12%; margin-top: 8%; background: repeating-linear-gradient(90deg, #1E1A18 0 2px, transparent 2px 4px, #1E1A18 4px 6px, transparent 6px 7px)"></div></div></div>
+</div>
+<div class="p-ffront" style="position: relative; z-index: 4; width: 100%; aspect-ratio: 1520 / 880; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 -4px 6px rgba(0,0,0,.25)) drop-shadow(0 22px 26px rgba(0,0,0,.45))">
+<div class="p-label m-label" style="padding: 26px 44px; text-align: center; color: #2A1A1A; transform: rotate(-1.5deg); filter: drop-shadow(0 3px 4px rgba(0,0,0,.25))">
+<h2 style="margin: 0; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: clamp(20px, 4vw, 30px); color: #7A1420; border-bottom: 1.5px solid #2A1A1A; padding-bottom: 6px; line-height: 1.9">my work</h2>
+<p class="m-sub" style="margin: 8px 0 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; letter-spacing: .04em; font-size: 12px; border-bottom: 1.5px solid #2A1A1A; padding-bottom: 6px; line-height: 1.5">projects, content &amp; results</p>
+</div>
+</div>
+</div>
+<p class="rise" style="margin: 0; max-width: 560px; text-align: center">Four projects, four worlds: fashion, music, hospitality and food. For each one, what I did and how it went.</p>
+</section>
+
+<article class="frame scan" style="background-color: #7A1420">
+<div style="display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; justify-content: space-between">
+<div style="flex: 1 1 280px; max-width: 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h2 class="rise m-h2" style="margin: 0; text-align: left; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 36px; line-height: 1.9">thestylepusher</h2>
+<p style="margin: 28px 0 0; font-size: 13px; letter-spacing: .12em; opacity: .85">01 · FASHION &amp; LIFESTYLE · @THESTYLEPUSHER</p>
+<p style="margin: 0"><strong>What I did:</strong> format ideas, editing and copy.</p>
+</div>
+<div class="m-pair" style="flex: 0 0 auto; display: flex; gap: 26px; align-items: flex-start; margin-inline: auto">
+<div class="reveal" style="--r: -3deg; flex: 0 0 auto; width: 200px; height: 400px; border: 9px solid #111; border-radius: 30px; background: #111; color: #F2EBDD; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; font-size: 13px; overflow: hidden; box-shadow: 0 20px 36px rgba(0,0,0,.5); box-sizing: border-box"><video src="assets/tsp_reel.mp4" poster="assets/tsp_poster.jpg" autoplay="" muted="" loop="" playsinline="" aria-label="Reel for The Style Pusher" style="width: 100%; height: 100%; object-fit: cover; display: block"></video></div>
+<div class="reveal" style="--r: 4deg; flex: 0 0 auto; width: 200px; height: 400px; margin-top: 50px; border: 9px solid #111; border-radius: 30px; background: #111; overflow: hidden; box-shadow: 0 20px 36px rgba(0,0,0,.5); box-sizing: border-box"><video src="assets/reel2.mp4" poster="assets/reel2_poster.jpg" autoplay="" muted="" loop="" playsinline="" aria-label="Second reel for The Style Pusher" style="width: 100%; height: 100%; object-fit: cover; display: block"></video></div>
+</div>
+</div>
+</article>
+
+<article class="frame scan" style="background-color: #7A1420">
+<div style="display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; justify-content: space-between">
+<div style="flex: 1 1 280px; max-width: 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h2 class="rise m-h2" style="margin: 0; text-align: left; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 36px; line-height: 1.9">waveforms studio</h2>
+<p style="margin: 28px 0 0; font-size: 13px; letter-spacing: .12em; opacity: .85">02 · MUSIC · @WAVEFORMSTUDIO</p>
+<p style="margin: 0"><strong>What I did:</strong> ideas, shooting, editing and copy.</p>
+</div>
+<div class="m-pair" style="flex: 0 0 auto; display: flex; gap: 26px; align-items: flex-start; margin-inline: auto">
+<div class="reveal" style="--r: -3deg; flex: 0 0 auto; width: 200px; height: 400px; border: 9px solid #111; border-radius: 30px; background: #000; overflow: hidden; box-shadow: 0 20px 36px rgba(0,0,0,.5); box-sizing: border-box"><video src="assets/wf_reel1.mp4" poster="assets/wf_poster1.jpg" autoplay="" muted="" loop="" playsinline="" aria-label="Reel for Waveforms Studio" style="width: 100%; height: 100%; object-fit: cover; background: #000; display: block"></video></div>
+<div class="reveal" style="--r: 4deg; flex: 0 0 auto; width: 200px; height: 400px; margin-top: 50px; border: 9px solid #111; border-radius: 30px; background: #000; overflow: hidden; box-shadow: 0 20px 36px rgba(0,0,0,.5); box-sizing: border-box"><video src="assets/wf_reel2.mp4" poster="assets/wf_poster2.jpg" autoplay="" muted="" loop="" playsinline="" aria-label="Second video for Waveforms Studio" style="width: 100%; height: 100%; object-fit: contain; background: #000; display: block"></video></div>
+</div>
+</div>
+</article>
+
+<article class="frame scan" style="background-color: #7A1420; display: flex; flex-direction: column; gap: 32px">
+<h2 class="rise m-h2" style="margin: 0; text-align: left; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 36px; line-height: 1.9">corte dei pavoni</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div class="reveal" style="--r: -1.5deg; flex: 1 1 480px; max-width: 600px; position: relative">
+<div style="background: #EDE7DA; border-radius: 12px 12px 6px 6px; box-shadow: 0 22px 40px rgba(0,0,0,.5); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: #DCD3C2"><span style="width: 11px; height: 11px; border-radius: 50%; background: #E0645A"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #E6B84A"></span><span style="width: 11px; height: 11px; border-radius: 50%; background: #6DB36A"></span><span style="margin-left: 12px; flex: 1; background: #F4F0E6; border-radius: 6px; padding: 3px 10px; font-size: 12px; color: #6B6460">cortedeipavoni.it</span></div>
+<video src="assets/site_scroll.mp4" poster="assets/site_poster.jpg" autoplay="" muted="" loop="" playsinline="" aria-label="Scrolling through the Corte dei Pavoni website" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: #F2EBDD"></video>
+</div>
+</div>
+<div style="flex: 999 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 13px; letter-spacing: .12em; opacity: .85">03 · WEBSITE · HOSPITALITY</p>
+<p style="margin: 0">Website for a B&amp;B with apartments and an event space: design, content and a direct booking system, built from scratch with the help of AI.</p>
+<a href="https://www.cortedeipavoni.it/" target="_blank" rel="noopener" style="align-self: flex-start; padding: 8px 0; color: #F2EBDD; font-size: 14px; letter-spacing: .08em">visit the website</a>
+</div>
+</div>
+</article>
+<article class="frame scan" style="background-color: #7A1420">
+<div style="display: flex; flex-wrap: wrap; gap: 40px 56px; align-items: flex-start; justify-content: space-between">
+<div style="flex: 1 1 280px; max-width: 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<h2 class="rise m-h2" style="margin: 0; text-align: left; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 36px; line-height: 1.9">forno di barona</h2>
+<p style="margin: 28px 0 0; font-size: 13px; letter-spacing: .12em; opacity: .85">04 · FOOD &amp; BAKERY · @FORNODIBARONA</p>
+<p style="margin: 0"><strong>What I did:</strong> content ideas, editing, content scheduling and copy.</p>
+</div>
+<div class="m-pair" style="flex: 0 0 auto; display: flex; gap: 26px; align-items: flex-start; margin-inline: auto">
+<div class="reveal" style="--r: -3deg; flex: 0 0 auto; width: 200px; height: 400px; border: 9px solid #111; border-radius: 30px; background: #000; overflow: hidden; box-shadow: 0 20px 36px rgba(0,0,0,.5); box-sizing: border-box"><video src="assets/fdb_reel.mp4" poster="assets/fdb_poster.jpg" autoplay="" muted="" loop="" playsinline="" aria-label="Reel for Forno di Barona" style="width: 100%; height: 100%; object-fit: cover; display: block"></video></div>
+<div class="reveal" style="--r: 4deg; flex: 0 0 auto; width: 200px; height: 400px; margin-top: 50px; border: 9px solid #111; border-radius: 30px; background: #FAFAFA; overflow: hidden; box-shadow: 0 20px 36px rgba(0,0,0,.5); box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; position: relative"><div aria-hidden="true" style="position: absolute; top: 15px; left: 4px; right: 4px; display: flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 400; color: #111"><span style="display: block; flex: 0 0 12px; width: 12px; height: 12px; border-radius: 50%; background: #E0362C"></span><span>fornodibarona</span></div><div style="width: 100%; aspect-ratio: 3 / 4; overflow: hidden; position: relative"><div class="carousel" style="display: flex; width: 200%; height: 100%"><img src="assets/fdb_car1.jpg" alt="Forno di Barona tote bag hanging on the bakery door" style="width: 50%; height: 100%; object-fit: cover; display: block"><img src="assets/fdb_car2.jpg" alt="Forno di Barona tote bag filled with bread" style="width: 50%; height: 100%; object-fit: cover; display: block"></div></div><div aria-hidden="true" style="display: flex; justify-content: center; gap: 4px; padding-top: 8px"><span class="dot1" style="width: 5px; height: 5px; border-radius: 50%; background: #3897F0"></span><span class="dot2" style="width: 5px; height: 5px; border-radius: 50%; background: #C7C7C7"></span></div></div>
+</div>
+</div>
+</article>
+
+
+
+<section id="contatti" class="frame papertile" style="background-color: #F2EBDD; color: #2A1A1A; display: flex; flex-direction: column; align-items: center; gap: 28px; margin-bottom: 0">
+<div class="reveal" style="--r: 0deg; width: 100%; max-width: 640px">
+<div style="position: relative; width: 100%; aspect-ratio: 3200 / 952; transform: rotate(1deg); opacity: .5; filter: drop-shadow(0 16px 22px rgba(0,0,0,.35))">
+<img src="assets/trailt1.png" alt="" style="position: absolute; left: 0.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
+<img src="assets/trailt2.png" alt="" style="position: absolute; left: 25.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
+<img src="assets/trailt3.png" alt="" style="position: absolute; left: 50.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
+<img src="assets/trailt4.png" alt="" style="position: absolute; left: 75.5%; top: 20.17%; width: 23.53%; height: 59.14%; object-fit: cover; display: block">
+<img src="assets/film_red.png" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+</div>
+</div>
+<h2 class="reveal ribbon scan" style="--r: -2deg; margin: 0; font-family: 'Beth Ellen', cursive; font-weight: 400; font-size: 26px; line-height: 1.9; background-color: #7A1420; color: #F2EBDD; padding: 12px 56px 16px; text-align: center">let's work together</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 28px; justify-content: center; font-size: 14px">
+<a href="mailto:alicemannarino02@gmail.com" style="padding: 8px 4px; color: #2A1A1A; font-size: 16px">alicemannarino02@gmail.com</a>
+</div>
+<p style="margin: 10px 0 0; font-size: 13px">the end. · © 2026 alice mannarino</p>
+</section>
+
+</div>
+</div>
+<script>
+document.querySelectorAll('video').forEach(function(v){v.muted=true;var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});});
+</script>
+</body>
+</html>
